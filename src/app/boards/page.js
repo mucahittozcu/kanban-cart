@@ -26,8 +26,9 @@ const handleStop = () => {
   return (
     <div className="h-screen w-screen flex bg-blue-50 justify-center items-center relative overflow-hidden">
     
-     <div className="h-screen w-screen flex ">
+ <div className="h-screen w-screen flex ">
     <div className=" z-50"><Projects /></div>
+    <div className="absolute left-14 lg:left-[500px]">
     <div className="flex flex-col bg-blue-50 h-screen w-screen">
       <h1 className=" text-blue-700 text-4xl font-bold pt-7 pl-10 ">Frontend Case</h1>
      <div className="flex pl-10 pt-5 font-semibold  ">
@@ -43,8 +44,8 @@ const handleStop = () => {
      </div>
     </div>
     
-     <Draggable onStart={handleStart} onStop={handleStop} axis="x" bounds={{ left: -830, top: 0, right: 0, bottom: 0 }}>
-  <div className={`${cursor ? "cursor-grabbing" : "cursor-grab"} flex gap-x-5 absolute top-40 left-[530px]`}>
+     <Draggable onStart={handleStart} onStop={handleStop} axis="x" bounds={{ left: -850, top: 0, right: 0, bottom: 0 }}>
+  <div className={`${cursor ? "cursor-grabbing" : "cursor-grab"} flex gap-x-5 absolute top-40 left-[40px]`}>
 
     <div className="bg-white cursor-default relative rounded-xl w-[350px] h-[750px] ">
        <div className=" border-b-2 h-16 ">
@@ -191,6 +192,8 @@ const handleStop = () => {
 
   </div>
   </Draggable>
+    
+    </div>
     </div>
     
     </div>

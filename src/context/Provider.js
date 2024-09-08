@@ -18,7 +18,7 @@ const Provider = ({children}) => {
     const [mouseEnterSix,setMouseEnterSix] = useState(false) 
     const [addBoard,setAddBoard] = useState(false) 
     const [cursor,setCursor] = useState(false) 
-
+    const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
       const savedLog = localStorage.getItem("log")
       if(savedLog){
@@ -56,6 +56,7 @@ const Provider = ({children}) => {
     addBoard,setAddBoard,
     login,setLogin,
     cursor,setCursor,
+    isOpen,setIsOpen,
     handleSubmit
 }
 

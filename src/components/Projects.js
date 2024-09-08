@@ -3,9 +3,9 @@ import SiteContext from "@/context/SiteContext"
 import { RiArrowDownWideLine,RiArrowUpWideLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
 import { useContext, useState } from "react"
-
+import { RxHamburgerMenu } from "react-icons/rx";
 const Projects = () => {
-    const {projectOne,setProjectOne,projectTwo,setProjectTwo,projectThree,setProjectThree,projectFour,setProjectFour,log} = useContext(SiteContext)
+    const {projectOne,setProjectOne,projectTwo,setProjectTwo,projectThree,setProjectThree,projectFour,setProjectFour,log,isOpen,setIsOpen} = useContext(SiteContext)
 
     const projectContentOne = [{projectName:"Proje İsim 1" ,nameOne: "Overview",nameTwo: "Notifications",nameThree: "Analytics",nameFour: "Reports", color: "red", value: 10}]
     const projectContentTwo = [{projectName:"Proje İsim 2" ,nameOne: "Overview",nameTwo: "Notifications",nameThree: "Analytics",nameFour: "Reports", color: "blue", value: 10}]
@@ -39,8 +39,7 @@ const Projects = () => {
     const userName = log.length > 0 ? log[0].name : "Kullanıcı Adı";
     const userEmail = log.length > 0 ? log[0].email : "Email Adresi";
  return (
-    <div className="w-[500px] flex relative bg-white h-screen shadow-xl">
-
+  <div className="flex relative w-[500px]">
       <div className="w-[80px] h-screen bg-blue-950 relative ">
          <div className="flex flex-col gap-y-2 absolute top-10 left-2 ">
            <button className=" hover:bg-white hover:duration-700 hover:opacity-100 p-3  rounded-xl "><FaRegBell size={35} color="grey" className=" opacity-40" /></button>
@@ -57,8 +56,14 @@ const Projects = () => {
          </div>
          <img src={"Avatar.png"} className=" w-14 h-14 left-3 absolute bottom-3 rounded-full" />
       </div>
+  
 
-    <div className="w-[400px] relative h-screen pt-10 pl-3 pr-5">
+      <RxHamburgerMenu color="white" size={40} onClick={() => setIsOpen((pre) => !pre)} className="cursor-pointer opacity-80 absolute top-3 left-4 z-20 lg:hidden" />
+
+    <div  className={` flex lg:relative bg-white h-screen shadow-xl transition-transform transform ${isOpen ? 'translate-x-20' : '-translate-x-full'} shadow-2xl lg:translate-x-0 duration-300 fixed top-0 left-0 lg:left-0 bg-slate-50 w-[400px] h-screen xl:w-[400px] xl:h-screen lg:w-[400px] lg:h-screen z-10 lg:z-auto lg:block lg:static`}>
+
+
+    <div className={`w-[400px] relative h-screen pt-10 pl-3 pr-5`}>
      <h2 className="text-2xl pb-2 font-bold">Projeler</h2>
 
      <div className="pl-5 ">
@@ -172,9 +177,11 @@ const Projects = () => {
 
 
     </div>
-       <h3 className="text-2xl text-black absolute bottom-7 left-28 mb-3 mt-5 font-bold"> {userName}</h3>
-       <p className="text-xl text-black absolute bottom-1 left-28 mb-3 mt-5">{userEmail}</p>
+       <h3 className="text-2xl text-black absolute bottom-7 left-10 mb-3 mt-5 font-bold"> {userName}</h3>
+       <p className="text-xl text-black absolute bottom-1 left-10 mb-3 mt-5">{userEmail}</p>
        
+    </div>
+
     </div>
   )
 }
